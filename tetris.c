@@ -126,8 +126,8 @@ tetris_print(struct tetris *t) {
 	int x,y;
 	for (x=0; x<30; x++)
 		printf("\n");
-//	printf("[LEVEL: %d | SCORE: %d]\n", t->level, t->score);
-	for (x=0; x<2*t->w+2; x++)
+	printf("[LEVEL: %d | SCORE: %d]", t->level, t->score);
+	for (x=21; x<2*t->w+2; x++)
 		printf("~");
 	printf("\n");
 	for (y=0; y<t->h; y++) {
