@@ -19,27 +19,14 @@ dive in!
 
  Controls:
 
-  q: 		left
-  s: 		bottom (quicker)
-  d: 		right
-  [space]: 	rotate
+  j: 		left
+  k: 	rotate
+  l: 		right
+  [space]: 		bottom (quicker)
 
-   [LEVEL: 1 | SCORE: 0]
-  ~~~~~~~~~~~~~~~~~~~~~~~~~
-  !                        !
-  !                        !
-  !                        !
-  !                        !
-  !          O O           !
-  !          O             !
-  !          O             !
-  !                        !
-  !                        !
-  !                        !
-  !                        !
-  !              &         !
-  !              &         !
-  !      # #   X & &       !
-  !      # # X X X @ @ @ @ !
-  ~~~~~~~~~~~~~~~~~~~~~~~~~
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+!                                        !
+!O X # # & &   X Z Z     X   O O & & X   !
+!X X X #   & X X X Z Z X X X O     & X X !
+!O         &                 O     & X   !
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
