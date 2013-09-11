@@ -126,7 +126,7 @@ tetris_print(struct tetris *t) {
 	int x,y;
 	for (x=0; x<30; x++)
 		printf("\n");
-	printf("[LEVEL: %d | SCORE: %d]\n", t->level, t->score);
+//	printf("[LEVEL: %d | SCORE: %d]\n", t->level, t->score);
 	for (x=0; x<2*t->w+2; x++)
 		printf("~");
 	printf("\n");
@@ -150,8 +150,8 @@ tetris_print(struct tetris *t) {
 void
 tetris_new_block(struct tetris *t) {
 	t->current=blocks[random()%TETRIS_PIECES];
-	t->x=(t->w/2) - (t->current.w/2);
-	t->y=0;
+	t->y=(t->h/2) - (t->current.h/2);
+	t->x=0;
 	if (tetris_hittest(t)) {
 		t->gameover=1;
 	}
@@ -214,9 +214,9 @@ tetris_rotate(struct tetris *t) {
 void
 tetris_gravity(struct tetris *t) {
 	int x,y;
-	t->y++;
+	t->x++;
 	if (tetris_hittest(t)) {
-		t->y--;
+		t->x--;
 		tetris_print_block(t);
 		tetris_new_block(t);
 	}
@@ -225,12 +225,12 @@ tetris_gravity(struct tetris *t) {
 void
 tetris_fall(struct tetris *t, int l) {
 	int x,y;
-	for (y=l; y>0; y--) {
-		for (x=0; x<t->w; x++)
-			t->game[x][y]=t->game[x][y-1];
+	for (x=l; x>0; x--) {
+		for (y=0; y<t->w; y++)
+			t->game[y][x]=t->game[y][x-1];
 	}
-	for (x=0; x<t->w; x++)
-		t->game[x][0]=' ';
+	for (y=0; y<t->w; y++)
+		t->game[y][0]=' ';
 }
 
 void
@@ -290,20 +290,20 @@ tetris_run(int w, int h) {
 		}
 		while ((cmd=getchar())>0) {
 			switch (cmd) {
-			case 'q':
-				t.x--;
+			case 'l':
+				t.y--;
 				if (tetris_hittest(&t))
-					t.x++;
+					t.y++;
 			break;
-			case 'd':
-				t.x++;
+			case 'j':
+				t.y++;
 				if (tetris_hittest(&t))
-					t.x--;
-			break;
-			case 's':
-				tetris_gravity(&t);
+					t.y--;
 			break;
 			case ' ':
+				tetris_gravity(&t);
+			break;
+			case 'k':
 				tetris_rotate(&t);
 			break;
 			}
