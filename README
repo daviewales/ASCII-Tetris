@@ -1,5 +1,15 @@
-	ASCII Tetris game
+  !SIDEWAYS! ASCII Tetris game
 =================================
+
+I forked and modified Gregwar's game
+because I wanted to run it on a 20x4
+character display. If you want to
+run this on anything other than a
+20x4 character display, go and get
+Gregwar's version. It is better
+for what you want. Otherwise,
+dive in!
+
 
  To compile, use:
 
